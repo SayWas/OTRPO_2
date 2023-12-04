@@ -1,0 +1,6 @@
+from enum import Enum
+
+
+class ErrorCode(str, Enum):
+    VERIFY_OTP_BAD_CREDENTIALS = "VERIFY_OTP_BAD_CREDENTIALS"
+    VERIFY_OTP_USER_NOT_FOUND = "VERIFY_OTP_USER_NOT_FOUND"

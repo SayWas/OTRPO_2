@@ -1,0 +1,49 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    container_name: db_postgres
+    command: -p 5432
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env-prod
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - ftp
+
+  redis:
+    image: redis:latest
+    container_name: redis-pokeback
+    ports:
+      - "6379:6379"
+    volumes:
+    - ./redis-data:/data
+    networks:
+      - ftp
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  fastapi-pokeback:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fastapi-pokeback
+    env_file:
+      - .env-prod
+    command: ["/fastapi-pokeback/docker/fastapi-pokeback.sh"]
+    ports:
+      - "8000:8000"
+    networks:
+      - ftp
+    depends_on:
+      - db
+      - redis
+
+networks:
+  ftp:
+    external: true

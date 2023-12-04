@@ -1,0 +1,15 @@
+[tool.pytest.ini_options]
+pythonpath = [
+    ".", "src",
+]
+asyncio_mode="auto"
+
+[project]
+name = "PokeAPIBackend"
+version = "0.1.0"
+description = "PokeAPI app"
+authors = [
+    {name = "Владислав Сайфулин", email = "saifulinvladislav@gmail.com"}
+]
+license = "MIT"
+readme = "README.md"
