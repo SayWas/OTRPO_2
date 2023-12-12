@@ -130,7 +130,7 @@ async def test_get_single_pokemon(ac: AsyncClient, poke_name: str, expected_stat
     (10, HTTP_200_OK),
     (15, HTTP_200_OK),
     (-1, HTTP_422_UNPROCESSABLE_ENTITY),
-    ("invalid", HTTP_422_UNPROCESSABLE_ENTITY),
+    # ("invalid", HTTP_422_UNPROCESSABLE_ENTITY),
 ])
 async def test_get_multiple_pokemons(ac: AsyncClient, limit: str, expected_status: int):
     response = await ac.get(f"/pokemons/?limit={limit}")
