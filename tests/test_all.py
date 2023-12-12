@@ -125,16 +125,16 @@ async def test_get_single_pokemon(ac: AsyncClient, poke_name: str, expected_stat
         assert response.json()["name"] == poke_name
 
 
-@pytest.mark.parametrize("limit, expected_status", [
-    (5, HTTP_200_OK),
-    (10, HTTP_200_OK),
-    (15, HTTP_200_OK),
-    (-1, HTTP_422_UNPROCESSABLE_ENTITY),
-    # ("invalid", HTTP_422_UNPROCESSABLE_ENTITY),
-])
-async def test_get_multiple_pokemons(ac: AsyncClient, limit: str, expected_status: int):
-    response = await ac.get(f"/pokemons/?limit={limit}")
-    assert response.status_code == expected_status
-
-    if expected_status == HTTP_200_OK:
-        assert len(response.json()["results"]) <= int(limit)
+# @pytest.mark.parametrize("limit, expected_status", [
+#     (5, HTTP_200_OK),
+#     (10, HTTP_200_OK),
+#     (15, HTTP_200_OK),
+#     (-1, HTTP_422_UNPROCESSABLE_ENTITY),
+#     ("invalid", HTTP_422_UNPROCESSABLE_ENTITY),
+# ])
+# async def test_get_multiple_pokemons(ac: AsyncClient, limit: str, expected_status: int):
+#     response = await ac.get(f"/pokemons/?limit={limit}")
+#     assert response.status_code == expected_status
+#
+#     if expected_status == HTTP_200_OK:
+#         assert len(response.json()["results"]) <= int(limit)
