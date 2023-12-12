@@ -3,11 +3,11 @@ from httpx import AsyncClient
 from starlette.status import HTTP_200_OK, HTTP_422_UNPROCESSABLE_ENTITY, HTTP_404_NOT_FOUND, HTTP_201_CREATED, HTTP_500_INTERNAL_SERVER_ERROR
 from unittest.mock import patch,  AsyncMock
 
-# from sqlalchemy import select
+from sqlalchemy import select
 
-# from conftest import async_session_maker
-# from src.ftp_client import FTPException
-# from src.models import Logs
+from conftest import async_session_maker
+from src.ftp_client import FTPException
+from src.models import Logs
 from src.schemas import LogSchema, PokemonSchema
 
 
