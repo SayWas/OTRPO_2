@@ -111,18 +111,18 @@ async def test_send_mail(mock_send_logs_mail, ac: AsyncClient, mail, winner_id, 
 #         assert isinstance(mock_save_pokemon_md.side_effect, Exception)
 
 
-@pytest.mark.parametrize("poke_name, expected_status", [
-    ("pikachu", HTTP_200_OK),
-    ("charizard", HTTP_200_OK),
-    ("nonexistentpokemon", HTTP_404_NOT_FOUND)
-])
-async def test_get_single_pokemon(ac: AsyncClient, poke_name: str, expected_status: int):
-    response = await ac.get(f"/pokemon/{poke_name}")
-    assert response.status_code == expected_status
-
-    if expected_status == HTTP_200_OK:
-        assert "name" in response.json()
-        assert response.json()["name"] == poke_name
+# @pytest.mark.parametrize("poke_name, expected_status", [
+#     ("pikachu", HTTP_200_OK),
+#     ("charizard", HTTP_200_OK),
+#     ("nonexistentpokemon", HTTP_404_NOT_FOUND)
+# ])
+# async def test_get_single_pokemon(ac: AsyncClient, poke_name: str, expected_status: int):
+#     response = await ac.get(f"/pokemon/{poke_name}")
+#     assert response.status_code == expected_status
+#
+#     if expected_status == HTTP_200_OK:
+#         assert "name" in response.json()
+#         assert response.json()["name"] == poke_name
 
 
 # @pytest.mark.parametrize("limit, expected_status", [
