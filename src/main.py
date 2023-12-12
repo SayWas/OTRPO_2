@@ -100,7 +100,8 @@ async def send_mail(
 @app.post(
     "/add_to_db",
     status_code=status.HTTP_201_CREATED,
-    response_model=LogSchema
+    response_model=LogSchema,
+    dependencies=[Depends(current_user)]
 )
 async def add_to_db(
         log: LogSchema,
@@ -120,7 +121,9 @@ security = HTTPBasic()
 @app.post(
     "/save_pokemon",
     status_code=status.HTTP_201_CREATED,
-    response_model=PokemonSchema)
+    response_model=PokemonSchema,
+    dependencies=[Depends(current_user)]
+)
 async def save_pokemon(
         pokemon: PokemonSchema,
         credentials: HTTPBasicCredentials = Depends(security)
