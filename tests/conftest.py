@@ -7,12 +7,8 @@ from fastapi.testclient import TestClient
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from httpx import AsyncClient
-from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.pool import NullPool
-from config import (DB_HOST_TEST, DB_NAME_TEST, DB_PASSWORD_TEST, DB_PORT_TEST, DB_USER_TEST)
 
-from src import app, get_async_session, Base
+from src import app
 
 
 # DATABASE_URL_TEST = f"postgresql+asyncpg://{DB_USER_TEST}:{DB_PASSWORD_TEST}@{DB_HOST_TEST}:{DB_PORT_TEST}/{DB_NAME_TEST}"
