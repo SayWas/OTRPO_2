@@ -36,6 +36,19 @@ jobs:
       DB_NAME: PokemonTest
       DB_USER: postgres
       DB_PASSWORD: postgres
+      EMAIL_LOGIN: t
+      EMAIL_PASSWORD: t
+      FTP_HOST: ftp
+      FTP_PORT: 21
+      REDIS_HOST: localhost
+      REDIS_PORT: 6379
+      AUTH_SECRET: 2
+      MANAGER_SECRET: p
+      RESET_SECRET: p
+      VERIFICATION_SECRET: v
+      CLIENT_ID: 6
+      CLIENT_SECRET: G
+      STATE_SECRET: g
 
     steps:
       - uses: actions/checkout@v2
