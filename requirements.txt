@@ -24,7 +24,7 @@ aiofiles~=23.2.1
 fastapi-cache2[redis]
 redis~=4.6.0
 httpx
-pytest-asyncio
+pytest-asyncio==0.21.1
 fakeredis
 fastapi-users[sqlalchemy,oauth]
 pyotp
